@@ -1,0 +1,24 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 140px;
+}
+
+.backet {
+    display: flex;
+    align-items: center;
+}
+
+.backetIcon {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
+
+.backetAmount {
+    color: #797B86;
+}
+
+.backetTotal {
+    font-weight: 600;
+}
