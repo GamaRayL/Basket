@@ -1,7 +1,9 @@
 import css from "./styles.module.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const Header = () => {
+  const items = useSelector((state) => state.card.itemsInCard);
   return (
     <header className={css.header}>
       <div>

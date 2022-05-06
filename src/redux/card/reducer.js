@@ -4,15 +4,15 @@ const cardSlice = createSlice({
   name: "card",
   initialState: {
     itemsInCard: [],
-    reducers: {
-      setItemInCard: (state, action) => {
-        state.itemsInCard.push(action.payload);
-      },
-      deleteItemFromCard: (state, action) => {
-        state.itemsInCard = state.itemsInCard.filter(
-          (product) => product.id !== action.payload
-        );
-      },
+  },
+  reducers: {
+    setItemInCard: (state, action) => {
+      state.itemsInCard.push(action.payload);
+    },
+    deleteItemFromCard: (state, action) => {
+      state.itemsInCard = state.itemsInCard.filter(
+        (product) => product.id !== action.payload
+      );
     },
   },
 });
