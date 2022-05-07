@@ -1,28 +1,4 @@
-.top {
+.container {
     display: flex;
-    align-items: baseline;
     justify-content: space-between;
-    width: 60%;
-    margin-bottom: 54px;
-}
-
-.amount {
-    width: 40%;
-}
-
-.topHeader {
-    font-size: 44px;
-    font-weight: 700;
-}
-
-.topAmount {
-    margin-left: 22px;
-    font-size: 18px;
-    color: #797B86;
-    flex-grow: 1;
-}
-
-.topDeleteAll {
-    color: #797B86;
-    text-decoration: underline;
 }

@@ -1,18 +1,16 @@
 import css from "./styles.module.css";
+import { ProductCollection } from "./ProductCollection";
+import { TotalBasket } from "./TotalBasket";
+import { Service } from "./Service";
+import { useSelector } from "react-redux";
 
 export const Basketpage = () => {
+  const items = useSelector((state) => state.card.itemsInCard);
   return (
     <main className={css.container}>
-      <div className={css.collection}>
-        <div className={css.top}>
-          <span className={css.topHeader}>Ваша корзина</span>
-          <span className={css.topAmount}>4 товара</span>
-          <span className={css.topDeleteAll}>Очистить корзину</span>
-        </div>
-        <div className={css.main}></div>
-        <div className={css.footer}></div>
-      </div>
-      <div className={css.amount}></div>
+      <ProductCollection items={items}/>
+      <TotalBasket />
+      <Service />
     </main>
   );
 };

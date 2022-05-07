@@ -7,6 +7,7 @@ export const Homepage = () => {
     <div className={css.container}>
       {data.products.map((product) => (
         <Card
+          id={product.id}
           product={product}
           key={product.art}
           name={product.name}

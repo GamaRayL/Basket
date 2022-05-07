@@ -1,0 +1,15 @@
+.productsInBasket {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: rgb(150, 145, 145);
+    border-radius: 10px;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    z-index: 2;
+    left: 18px;
+    top: -10px;
+}
