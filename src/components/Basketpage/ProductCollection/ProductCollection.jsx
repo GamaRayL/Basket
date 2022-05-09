@@ -1,6 +1,14 @@
+import { useDispatch } from "react-redux";
+import { deleteItemFromCard } from "../../../redux/card/reducer";
 import css from "./styles.module.css";
 
 export const ProductCollection = ({ items }) => {
+  const dispatch = useDispatch();
+
+  const deleteItemFromCollection = (id) => {
+    dispatch(deleteItemFromCard(id));
+  };
+
   return (
     <div className={css.collection}>
       <div className={css.top}>
@@ -28,7 +36,10 @@ export const ProductCollection = ({ items }) => {
           <div className={css.productPriceAmount}>
             {item.price.toLocaleString("ru-RU")} ₽
           </div>
-          <div className={css.deleteIcon}>
+          <div
+            className={css.deleteIcon}
+            onClick={() => deleteItemFromCollection(item.id)}
+          >
             <img src="./images/delete.svg" alt="" />
           </div>
         </div>
