@@ -1,12 +1,7 @@
+import { Button } from "../../Inputs";
 import css from "./styles.module.css";
-import { Button } from "../../Inputs/Button";
-import { calcTotalPrice } from "../../countPrice";
-import { useSelector } from "react-redux";
 
-export const TotalBasket = () => {
-  const items = useSelector((state) => state.card.itemsInCard);
-  const totalPrice = calcTotalPrice(items);
-
+export const TotalBasket = ({ totalPrice, items }) => {
   return (
     <div className={css.total}>
       <p className={css.smallTitle}>Итого</p>
@@ -16,7 +11,7 @@ export const TotalBasket = () => {
       </div>
       <div className={css.rowPoint}>
         <span>Количество</span>
-        <span>4 шт</span>
+        <span>{items.length} шт</span>
       </div>
       <div className={css.rowPoint}>
         <span>Установка</span>

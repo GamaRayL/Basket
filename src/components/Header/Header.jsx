@@ -1,8 +1,8 @@
-import css from "./styles.module.css";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { calcTotalPrice } from "../countPrice";
 import { ProductsInBasket } from "./ProductsInBasket";
+import css from "./styles.module.css";
 
 export const Header = () => {
   const items = useSelector((state) => state.card.itemsInCard);
@@ -35,7 +35,6 @@ export const Header = () => {
           ) : (
             "пуста"
           )}
-          <p className={css.backetAmount}>3 товара</p>
         </div>
       </div>
     </header>

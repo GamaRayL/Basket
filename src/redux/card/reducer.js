@@ -9,6 +9,7 @@ const cardSlice = createSlice({
     setItemInCard: (state, action) => {
       state.itemsInCard.push(action.payload);
     },
+    
     deleteItemFromCard: (state, action) => {
       state.itemsInCard = state.itemsInCard.filter(
         (product) => product.id !== action.payload
@@ -19,3 +20,4 @@ const cardSlice = createSlice({
 
 export const { setItemInCard, deleteItemFromCard } = cardSlice.actions;
 export default cardSlice.reducer;
+ 

@@ -1,25 +1,17 @@
 import css from "./styles.module.css";
 
 export const ProductCollection = ({ items }) => {
-  // const dispatch = useDispatch();
-
-  // const isProductInCard = products.some((product) => product.id === props.id);
-
-  // const deleteFromCollection = () => {
-  //   if (isProductInCard) {
-  //     dispatch(deleteItemFromCard(props.id));
-  //   }
-  // };
-
   return (
     <div className={css.collection}>
       <div className={css.top}>
         <span className={css.title}>Ваша корзина</span>
-        <span className={css.amountProduct}>4 товара</span>
+        <span className={css.amountProduct}>
+          {items.length > 0 ? `${items.length} товара` : null}
+        </span>
         <span className={css.deleteAll}>Очистить корзину</span>
       </div>
       {items.map((item) => (
-        <div key={item} className={css.product}>
+        <div key={item.id} className={css.product}>
           <div className={css.productIcon}>
             <img width={100} height={100} src={item.image} alt="" />
           </div>

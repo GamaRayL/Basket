@@ -1,7 +1,7 @@
-import css from "./styles.module.css";
-import { Button } from "../Inputs/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteItemFromCard, setItemInCard } from "../../redux/card/reducer";
+import { Button } from "../Inputs/";
+import css from "./styles.module.css";
 
 export const Card = (product) => {
   const dispatch = useDispatch();
