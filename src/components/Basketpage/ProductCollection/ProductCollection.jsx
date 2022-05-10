@@ -9,6 +9,15 @@ export const ProductCollection = ({ items }) => {
     dispatch(deleteItemFromCard(id));
   };
 
+  // TODO В случае если мы хотим увеличить количество товара тыкая на increment, то надо сделать проверку на соответствие нового элемента со старым - элементы похожи? = обновить цену/количество
+
+  const incrimentQuantityItem = (product) => {
+    const isItemInCollection = items.some((item) => item.id === product.id);
+    if (isItemInCollection) {
+      // TODO здесь должно быть обновление цены элемента на который тыкнули
+    } else return null;
+  };
+
   return (
     <div className={css.collection}>
       <div className={css.top}>
@@ -31,7 +40,12 @@ export const ProductCollection = ({ items }) => {
           <div className={css.productCount}>
             <span className={css.decrement}>-</span>
             <span className={css.count}>1</span>
-            <span className={css.increment}>+</span>
+            <span
+              className={css.increment}
+              onClick={() => incrimentQuantityItem(item)}
+            >
+              +
+            </span>
           </div>
           <div className={css.productPriceAmount}>
             {item.price.toLocaleString("ru-RU")} ₽

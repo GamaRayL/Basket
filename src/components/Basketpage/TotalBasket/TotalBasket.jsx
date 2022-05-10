@@ -7,21 +7,23 @@ export const TotalBasket = ({ totalPrice, items }) => {
       <p className={css.smallTitle}>Итого</p>
       <div className={css.rowPoint}>
         <span>Сумма заказа</span>
-        <span>{totalPrice.toLocaleString("ru-RU")} ₽</span>
+        <span>
+          {items.length > 0 ? `${totalPrice.toLocaleString("ru-RU")} ₽` : "-"}
+        </span>
       </div>
       <div className={css.rowPoint}>
         <span>Количество</span>
-        <span>{items.length} шт</span>
+        <span>{items.length > 0 ? `${items.length} шт` : "-"}</span>
       </div>
       <div className={css.rowPoint}>
         <span>Установка</span>
-        <span>Нет</span>
+        <span>{items.length > 0 ? "Добавить логику к установке" : "-"}</span>
       </div>
       <hr />
       <div className={css.rowPoint}>
         <span className={css.descriptionValue}>Стоимость товара</span>
         <span className={css.valueOfGoods}>
-          {totalPrice.toLocaleString("ru-RU")} ₽
+          {items.length > 0 ? `${totalPrice.toLocaleString("ru-RU")} ₽` : null}
         </span>
       </div>
       <Button>Оформить заказ</Button>
