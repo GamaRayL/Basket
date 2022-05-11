@@ -15,7 +15,7 @@ export const ProductCollection = ({ items }) => {
     const isItemInCollection = items.some((item) => item.id === product.id);
     if (isItemInCollection) {
       // TODO здесь должно быть обновление цены элемента на который тыкнули
-      console.log(increasePrice(product.price));
+      console.log(dispatch(increasePrice(product.price)));
     } else return null;
   };
 
@@ -48,9 +48,7 @@ export const ProductCollection = ({ items }) => {
               +
             </span>
           </div>
-          <div className={css.productPriceAmount}>
-            {item.price.toLocaleString("ru-RU")} ₽
-          </div>
+          <div className={css.productPriceAmount}>{item.price} ₽</div>
           <div
             className={css.deleteIcon}
             onClick={() => deleteItemFromCollection(item.id)}
