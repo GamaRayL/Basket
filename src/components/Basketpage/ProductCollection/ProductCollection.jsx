@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { deleteItemFromCard } from "../../../redux/card/reducer";
+import { deleteItemFromCard, increasePrice } from "../../../redux/card/reducer";
 import css from "./styles.module.css";
 
 export const ProductCollection = ({ items }) => {
@@ -11,10 +11,11 @@ export const ProductCollection = ({ items }) => {
 
   // TODO В случае если мы хотим увеличить количество товара тыкая на increment, то надо сделать проверку на соответствие нового элемента со старым - элементы похожи? = обновить цену/количество
 
-  const incrimentQuantityItem = (product) => {
+  const increaseQuantityItem = (product) => {
     const isItemInCollection = items.some((item) => item.id === product.id);
     if (isItemInCollection) {
       // TODO здесь должно быть обновление цены элемента на который тыкнули
+      console.log(increasePrice(product.price));
     } else return null;
   };
 
@@ -42,7 +43,7 @@ export const ProductCollection = ({ items }) => {
             <span className={css.count}>1</span>
             <span
               className={css.increment}
-              onClick={() => incrimentQuantityItem(item)}
+              onClick={() => increaseQuantityItem(item)}
             >
               +
             </span>

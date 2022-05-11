@@ -6,6 +6,11 @@ const cardSlice = createSlice({
     itemsInCard: [],
   },
   reducers: {
+    increasePrice: (state, action) => {
+      state.itemsInCard = state.itemsInCard.map(
+        (product) => product.price + action.payload
+      );
+    },
     setItemInCard: (state, action) => {
       state.itemsInCard.push(action.payload);
     },
@@ -17,5 +22,6 @@ const cardSlice = createSlice({
   },
 });
 
-export const { setItemInCard, deleteItemFromCard } = cardSlice.actions;
+export const { setItemInCard, deleteItemFromCard, increasePrice } =
+  cardSlice.actions;
 export default cardSlice.reducer;
