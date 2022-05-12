@@ -7,9 +7,16 @@ const cardSlice = createSlice({
   },
   reducers: {
     increasePrice: (state, action) => {
-      state.itemsInCard = state.itemsInCard.map(
-        (product) => product.price + action.payload
-      );
+      state.itemsInCard = state.itemsInCard.map((product) => ({
+        ...product,
+        totalPrice: product.totalPrice + action.payload,
+      }));
+    },
+    increaseQuantity: (state, action) => {
+      state.itemsInCard = state.itemsInCard.map((product) => ({
+        ...product,
+        quantity: 1 + action.payload,
+      }));
     },
     setItemInCard: (state, action) => {
       state.itemsInCard.push(action.payload);
@@ -22,6 +29,10 @@ const cardSlice = createSlice({
   },
 });
 
-export const { setItemInCard, deleteItemFromCard, increasePrice } =
-  cardSlice.actions;
+export const {
+  setItemInCard,
+  deleteItemFromCard,
+  increasePrice,
+  increaseQuantity,
+} = cardSlice.actions;
 export default cardSlice.reducer;
