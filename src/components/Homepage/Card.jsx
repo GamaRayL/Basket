@@ -3,7 +3,7 @@ import { deleteItemFromCard, setItemInCard } from "../../redux/card/reducer";
 import { Button } from "../Inputs/";
 import css from "./styles.module.css";
 
-export const Card = (product) => {
+export const Card = ({product}) => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.card.itemsInCard);
   const isItemInCard = items.some((item) => item.id === product.id);

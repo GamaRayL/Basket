@@ -18,7 +18,8 @@ export const ProductCollection = ({ items }) => {
   };
 
   const increaseInsideItem = (product) => {
-    if (itemId === product.id) {
+    // eslint-disable-next-line eqeqeq
+    if (itemId == product.id) {
       setIncreaseCount(increaseCount + 1);
       dispatch(increaseQuantity(increaseCount));
       dispatch(increasePrice(product.price));

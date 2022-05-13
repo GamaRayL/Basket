@@ -6,7 +6,7 @@ export const Homepage = () => {
   return (
     <div className={css.container}>
       {data.products.map((product) => (
-        <Card key={product.id} {...product} />
+        <Card key={product.id} product={product} />
       ))}
     </div>
   );
