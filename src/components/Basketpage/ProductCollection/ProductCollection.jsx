@@ -9,7 +9,6 @@ import css from "./styles.module.css";
 
 export const ProductCollection = ({ items }) => {
   const itemId = items.map((item) => item.id);
-  const [increaseCount, setIncreaseCount] = useState(1);
   const [decreaseCount, setDecreaseCount] = useState(1);
   const dispatch = useDispatch();
 
@@ -19,11 +18,12 @@ export const ProductCollection = ({ items }) => {
 
   const increaseInsideItem = (product) => {
     // eslint-disable-next-line eqeqeq
-    if (itemId == product.id) {
-      setIncreaseCount(increaseCount + 1);
-      dispatch(increaseQuantity(increaseCount));
+    if (itemId == product.id || itemId.some((id) => id == product.id)) {
+      dispatch(increaseQuantity(1));
       dispatch(increasePrice(product.price));
-    } else return null;
+    } else {
+      itemId.map((id) => id);
+    }
   };
 
   const decreaseInsideItem = (product) => {

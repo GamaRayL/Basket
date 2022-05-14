@@ -15,7 +15,7 @@ const cardSlice = createSlice({
     increaseQuantity: (state, action) => {
       state.itemsInCard = state.itemsInCard.map((product) => ({
         ...product,
-        quantity: 1 + action.payload,
+        quantity: product.quantity + action.payload,
       }));
     },
     setItemInCard: (state, action) => {
