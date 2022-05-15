@@ -1,7 +1,7 @@
 import { Button } from "../../Inputs";
 import css from "./styles.module.css";
 
-export const TotalBasket = ({ totalPrice, items }) => {
+export const TotalBasket = ({ totalPrice, items, totalQuantity }) => {
   return (
     <div className={css.total}>
       <p className={css.smallTitle}>Итого</p>
@@ -13,7 +13,7 @@ export const TotalBasket = ({ totalPrice, items }) => {
       </div>
       <div className={css.rowPoint}>
         <span>Количество</span>
-        <span>{items.length > 0 ? `${items.length} шт` : "-"}</span>
+        <span>{items.length > 0 ? `${totalQuantity} шт` : "-"}</span>
       </div>
       <div className={css.rowPoint}>
         <span>Установка</span>

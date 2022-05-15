@@ -1,12 +1,14 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { calcTotalPrice } from "../countPrice";
+import { calcTotalQuantity } from "../countQuantity";
 import { ProductsInBasket } from "./ProductsInBasket";
 import css from "./styles.module.css";
 
 export const Header = () => {
   const items = useSelector((state) => state.card.itemsInCard);
   const totalPrice = calcTotalPrice(items);
+  const totalQuantity = calcTotalQuantity(items);
 
   return (
     <header className={css.header}>
@@ -23,7 +25,10 @@ export const Header = () => {
 
       <div className={css.backet}>
         <div className={css.backetIcon}>
-          <ProductsInBasket quantity={items.length} />
+          <ProductsInBasket
+            totalQuantity={totalQuantity}
+            quantity={items.length}
+          />
           <img src="/images/basket.svg" alt="" />
         </div>
         <div className={css.backetDescription}>

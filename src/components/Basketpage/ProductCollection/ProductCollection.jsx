@@ -1,15 +1,12 @@
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   deleteItemFromCard,
-  increasePrice,
   increaseQuantity,
+  decreaseQuantity,
 } from "../../../redux/card/reducer";
 import css from "./styles.module.css";
 
 export const ProductCollection = ({ items }) => {
-  const itemId = items.map((item) => item.id);
-  const [decreaseCount, setDecreaseCount] = useState(1);
   const dispatch = useDispatch();
 
   const deleteItemFromCollection = (id) => {
@@ -17,19 +14,11 @@ export const ProductCollection = ({ items }) => {
   };
 
   const increaseInsideItem = (product) => {
-    // eslint-disable-next-line eqeqeq
-    if (itemId == product.id || itemId.some((id) => id == product.id)) {
-      dispatch(increaseQuantity(1));
-      dispatch(increasePrice(product.price));
-    } else {
-      itemId.map((id) => id);
-    }
+    dispatch(increaseQuantity({ id: product.id, quantity: 1 }));
   };
 
-  const decreaseInsideItem = (product) => {
-    if (itemId === product.id) {
-      setDecreaseCount(decreaseCount - 1);
-    } else return null;
+  const decreaseInsideItem = () => {
+    dispatch(decreaseQuantity(1));
   };
 
   return (
@@ -52,7 +41,10 @@ export const ProductCollection = ({ items }) => {
             <p className={css.vendorCode}>{item.art}</p>
           </div>
           <div className={css.productCount}>
-            <span className={css.decrement} onClick={decreaseInsideItem(item)}>
+            <span
+              className={css.decrement}
+              onClick={() => decreaseInsideItem()}
+            >
               -
             </span>
             <span className={css.count}>{item.quantity}</span>
