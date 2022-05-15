@@ -17,8 +17,8 @@ export const ProductCollection = ({ items }) => {
     dispatch(increaseQuantity({ id: product.id, quantity: 1 }));
   };
 
-  const decreaseInsideItem = () => {
-    dispatch(decreaseQuantity(1));
+  const decreaseInsideItem = (product) => {
+    dispatch(decreaseQuantity({ id: product.id, quantity: 1 }));
   };
 
   return (
@@ -43,7 +43,9 @@ export const ProductCollection = ({ items }) => {
           <div className={css.productCount}>
             <span
               className={css.decrement}
-              onClick={() => decreaseInsideItem()}
+              onClick={
+                item.quantity > 1 ? () => decreaseInsideItem(item) : null
+              }
             >
               -
             </span>

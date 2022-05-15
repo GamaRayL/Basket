@@ -17,11 +17,14 @@ const cardSlice = createSlice({
       );
     },
     decreaseQuantity: (state, action) => {
-      state.itemsInCard = state.itemsInCard.map((product) => ({
-        ...product,
-        quantity:
-          product.quantity > 1 ? product.quantity - action.payload : null,
-      }));
+      state.itemsInCard = state.itemsInCard.map((product) =>
+        action.payload.id === product.id
+          ? {
+              ...product,
+              quantity: product.quantity - action.payload.quantity,
+            }
+          : product
+      );
     },
     setItemInCard: (state, action) => {
       state.itemsInCard.push(action.payload);
