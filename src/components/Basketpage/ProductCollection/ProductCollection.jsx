@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import {
   deleteItemFromCard,
+  deleteAllItemsFromCard,
   increaseQuantity,
   decreaseQuantity,
 } from "../../../redux/card/reducer";
@@ -11,6 +12,10 @@ export const ProductCollection = ({ items }) => {
 
   const deleteItemFromCollection = (id) => {
     dispatch(deleteItemFromCard(id));
+  };
+
+  const deleteAllItemsFromCollection = () => {
+    dispatch(deleteAllItemsFromCard());
   };
 
   const increaseInsideItem = (product) => {
@@ -28,7 +33,12 @@ export const ProductCollection = ({ items }) => {
         <span className={css.amountProduct}>
           {items.length > 0 ? `${items.length} товара` : null}
         </span>
-        <span className={css.deleteAll}>Очистить корзину</span>
+        <span
+          className={css.deleteAll}
+          onClick={() => deleteAllItemsFromCollection()}
+        >
+          Очистить корзину
+        </span>
       </div>
       {items.map((item) => (
         <div key={item.id} className={css.product}>
