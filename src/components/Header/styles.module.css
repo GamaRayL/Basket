@@ -23,3 +23,15 @@
 .backetTotal {
     font-weight: 600;
 }
+
+.unorderedList {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 140px;
+}
+
+.linkTo {
+    text-decoration: none;
+    color: #797B86
+}

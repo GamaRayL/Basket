@@ -13,12 +13,12 @@ export const Header = () => {
   return (
     <header className={css.header}>
       <div>
-        <ul>
+        <ul className={css.unorderedList}>
           <li>
-            <Link to="/">Главная</Link>
+            <Link className={css.linkTo} to="/">Главная</Link>
           </li>
           <li>
-            <Link to="/basket">Корзина</Link>
+            <Link className={css.linkTo} to="/basket">Корзина</Link>
           </li>
         </ul>
       </div>
